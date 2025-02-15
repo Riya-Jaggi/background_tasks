@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1012114650138",
+    "firebase_url": "https://backgroundtasks-default-rtdb.firebaseio.com",
+    "project_id": "backgroundtasks",
+    "storage_bucket": "backgroundtasks.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012114650138:android:8a14cff6fc5c3c648b0da3",
+        "android_client_info": {
+          "package_name": "com.example.background_tasks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBIeGY2-oK9b9exHovz2Oh-URAkYzmFKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

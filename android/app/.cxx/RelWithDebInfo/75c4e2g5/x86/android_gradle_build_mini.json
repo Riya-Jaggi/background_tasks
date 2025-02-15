@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/riyajaggi/fvm/versions/3.7.12/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/riyajaggi/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/riyajaggi/Projects/background_tasks/background_tasks/android/app/.cxx/RelWithDebInfo/75c4e2g5/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/riyajaggi/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/riyajaggi/Projects/background_tasks/background_tasks/android/app/.cxx/RelWithDebInfo/75c4e2g5/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

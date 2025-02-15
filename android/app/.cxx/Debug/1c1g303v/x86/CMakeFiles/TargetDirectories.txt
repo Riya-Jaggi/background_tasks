@@ -1,0 +1,2 @@
+/Users/riyajaggi/Projects/background_tasks/background_tasks/android/app/.cxx/Debug/1c1g303v/x86/CMakeFiles/edit_cache.dir
+/Users/riyajaggi/Projects/background_tasks/background_tasks/android/app/.cxx/Debug/1c1g303v/x86/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,2 @@
+/Users/riyajaggi/Projects/background_tasks/background_tasks/android/app/.cxx/Debug/1c1g303v/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/riyajaggi/Projects/background_tasks/background_tasks/android/app/.cxx/Debug/1c1g303v/armeabi-v7a/CMakeFiles/rebuild_cache.dir
