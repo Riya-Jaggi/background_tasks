@@ -2,6 +2,7 @@ import 'package:background_tasks/data/data_sources/firebase_data_source.dart';
 import 'package:background_tasks/data/data_sources/firebase_data_source_impl.dart';
 import 'package:background_tasks/data/repositories_impl/car_repo_impl.dart';
 import 'package:background_tasks/domain/repositories/car_repo.dart';
+import 'package:background_tasks/domain/usecases/clear_data_use_case.dart';
 import 'package:background_tasks/domain/usecases/fetch_last_car_use_case.dart';
 import 'package:background_tasks/domain/usecases/insert_car_use_case.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,3 +28,10 @@ final fetchLastCarUseCaseProvider =
     Provider.autoDispose<FetchLastCarUseCase>((ref) {
   return FetchLastCarUseCase(ref.read(carRepoProvider));
 });
+
+// Clear data use case provider
+final clearDataUseCaseProvider =
+    Provider.autoDispose<ClearDataUseCase>((ref) {
+  return ClearDataUseCase(ref.read(carRepoProvider));
+});
+

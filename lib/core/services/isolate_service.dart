@@ -18,7 +18,7 @@ void startISolateTask() async {
 
 void isolateTask(SendPort sendPort) async {
   CarModel carModel = CarModel(
-      modelName: "Isolate",
+      modelName: "Tesla Isolate",
       vehicleTag: "ISO123",
       year: "2025",
       recordEntryDate:

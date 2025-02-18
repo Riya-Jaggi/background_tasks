@@ -1,5 +1,6 @@
 import 'package:background_tasks/core/services/foreground_service.dart';
 import 'package:background_tasks/core/services/isolate_service.dart';
+import 'package:background_tasks/core/services/permissions.dart';
 import 'package:background_tasks/core/services/workmanager_service.dart';
 import 'package:background_tasks/presentation/providers/car_notifier.dart';
 import 'package:flutter/material.dart';
@@ -23,18 +24,36 @@ class CarScreen extends ConsumerWidget {
         children: [
           Consumer(builder: (context, ref, child) {
             final carState = ref.watch(carProvider);
-            return Text(carState == null
-                ? "No Cars added. Please select option from below buttons to start adding cars."
-                : "Last Car : ${carState.modelName}, ${carState.vehicleTag} manufactured in ${carState.year}. \nRecord added in database on ${carState.recordEntryDate} at ${carState.recordEntryTime}.");
+            return Text(
+              carState == null
+                  ? "No Cars added. Please select option from below buttons to start adding cars."
+                  : "Model : ${carState.modelName},\nTag : ${carState.vehicleTag}\nManufacturing Yeaar : ${carState.year}.\nRecord added in database : ${carState.recordEntryDate}\n Record entry time : ${carState.recordEntryTime}",
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            );
           }),
+          const SizedBox(
+            height: 15,
+          ),
           ElevatedButton(
-              onPressed: () {
-                WorkmanagerService.scheduleTask();
+              onPressed: () async {
+                bool status =
+                    await PermissionHandler().askNotificationPermission();
+                if (status == true) {
+                  WorkmanagerService.scheduleTask();
+                } else {
+                  displaySnackBar(context);
+                }
               },
               child: const Text("Start Inserting Car Data With Work Manager")),
           ElevatedButton(
-              onPressed: () {
-                startForegroundService();
+              onPressed: () async {
+                bool status =
+                    await PermissionHandler().askNotificationPermission();
+                if (status == true) {
+                  startForegroundService();
+                } else {
+                  displaySnackBar(context);
+                }
               },
               child: const Text(
                   "Start Inserting Car Data With Foreground Service")),
@@ -42,9 +61,20 @@ class CarScreen extends ConsumerWidget {
               onPressed: () {
                 startISolateTask();
               },
-              child: const Text("Start Inserting Car Data With Isolate"))
+              child: const Text("Start Inserting Car Data With Isolate")),
+          ElevatedButton(
+              onPressed: () {
+                ref.read(carProvider.notifier).clearData();
+              },
+              child: const Text("Clear Data"))
         ],
       )),
     );
+  }
+
+  void displaySnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text("Please grant notification permission"),
+    ));
   }
 }

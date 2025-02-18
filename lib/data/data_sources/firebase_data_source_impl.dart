@@ -40,4 +40,9 @@ class FirebaseDataSourceImpl implements FirebaseDataSource {
       'recordEntryTime': carModel.recordEntryTime
     });
   }
+
+  @override
+  Future<void> clearData() async {
+    await _databaseReference.remove();
+  }
 }

@@ -8,12 +8,17 @@ class CarRepoImpl implements CarRepo {
   CarRepoImpl(this.firebaseDataSource);
 
   @override
-  Stream<CarModel?> fetchLastCar()  {
+  Stream<CarModel?> fetchLastCar() {
     return firebaseDataSource.fetchLastCar();
   }
 
   @override
   Future<void> insertCar(CarModel carModel) async {
     await firebaseDataSource.insertCar(carModel);
+  }
+
+  @override
+  Future<void> clearData() async {
+    await firebaseDataSource.clearData();
   }
 }

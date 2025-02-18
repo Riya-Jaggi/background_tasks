@@ -14,10 +14,11 @@ void callbackDispatcher() {
     (taskName, inputData) async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp();
+
       FirebaseDataSourceImpl firebaseDataSourceImpl = FirebaseDataSourceImpl();
 
       CarModel carModel = CarModel(
-          modelName: "Tesla",
+          modelName: "Tesla Work Manager",
           vehicleTag: "XYZ123",
           year: "2024",
           recordEntryDate:
@@ -27,7 +28,7 @@ void callbackDispatcher() {
 
       await firebaseDataSourceImpl.insertCar(carModel);
 
-  log("Inserted Data to Firebase via foreground Workmanager");
+      log("Inserted Data to Firebase via foreground Workmanager");
 
       return Future.value(true);
     },

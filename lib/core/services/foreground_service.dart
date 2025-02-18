@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+
 import 'package:background_tasks/data/data_sources/firebase_data_source_impl.dart';
 import 'package:background_tasks/domain/entities/car_model.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -77,13 +78,14 @@ void start() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   log("Foreground Service Started");
+  
 }
 
 void addDataToFireBase() async {
   FirebaseDataSourceImpl firebaseDataSourceImpl = FirebaseDataSourceImpl();
 
   CarModel carModel = CarModel(
-      modelName: "Tesla",
+      modelName: "Tesla Foreground Service",
       vehicleTag: "XYZ123",
       year: "2024",
       recordEntryDate:
